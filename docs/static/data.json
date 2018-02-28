@@ -1,0 +1,9 @@
+{
+    "data":{
+        "delete":true,
+        "edit":true
+    },
+    "errorMessage":null,
+    "hasErrors":false,
+    "success":true
+}
