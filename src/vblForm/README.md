@@ -39,5 +39,9 @@ vbl-form-item
 |----|----|----
 |默认||表单项内容
 
+## Usage with frameworks
+
+- [vee-validate](http://vee-validate.logaretm.com/)
+
 
 

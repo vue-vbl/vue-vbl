@@ -4,12 +4,17 @@
         <br/>
         <hr/>
         <strong>所有图标：</strong>
-        <a href="http://ionicons.com/" target="_blank">ionicons</a>
+        <all-icons></all-icons>
     </div>
 </template>
 
 <script>
+    import allIcons from './allIcons';
+    
     export default {
+        components: {
+            allIcons
+        }
     }
 </script>
 

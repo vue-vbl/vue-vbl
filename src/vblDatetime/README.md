@@ -20,4 +20,8 @@
 |名称|参数|描述
 |----|----|----
 
+## Usage with frameworks
+
+- [flatpickr](https://flatpickr.js.org/)
+
 
