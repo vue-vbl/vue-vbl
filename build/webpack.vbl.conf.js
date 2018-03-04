@@ -23,7 +23,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.buildVbl.assetsRoot,
     publicPath: config.buildVbl.assetsPublicPath,
-    filename: utils.assetsPath('js/vue-vbl.js'),
+    filename: utils.assetsPath('vue-vbl.js'),
     libraryTarget: 'umd',
     library: 'vue-vbl',
     umdNamedDefine: true
@@ -44,7 +44,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/vue-vbl.css')
+      filename: utils.assetsPath('vue-vbl.css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.

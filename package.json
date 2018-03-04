@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build-vbl.js",
-    "build:doc": "node build/build.js"
+    "build:doc": "node build/build.js",
+    "build:all": "npm version patch && npm run build && npm run build:doc"
   },
   "dependencies": {
     "flatpickr": "3.0.7",

@@ -6,7 +6,7 @@ module.exports = {
     env: require('./prod.env'),
     assetsRoot: path.resolve(__dirname, '../lib'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/lib/',
+    assetsPublicPath: './',
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
