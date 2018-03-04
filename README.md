@@ -22,7 +22,7 @@ npm install vue-vbl
 ```
 import Vue from 'vue';
 import VueVbl from 'vue-vbl';
-import 'vue-vbl/lib/static/css/vue-vbl.css';
+import 'vue-vbl/dist/vue-vbl.css';
 
 Vue.use(VueVbl);
 ```
