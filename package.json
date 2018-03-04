@@ -2,7 +2,7 @@
   "name": "vue-vbl",
   "version": "1.0.21",
   "description": "vue backend library",
-  "main": "lib/static/js/vue-vbl.js",
+  "main": "dist/vue-vbl.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build-vbl.js",

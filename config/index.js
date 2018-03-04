@@ -4,7 +4,7 @@ var path = require('path')
 module.exports = {
   buildVbl: {
     env: require('./prod.env'),
-    assetsRoot: path.resolve(__dirname, '../lib'),
+    assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: '',
     assetsPublicPath: './',
     productionSourceMap: false,
