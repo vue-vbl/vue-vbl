@@ -1,6 +1,6 @@
 {
   "name": "vue-vbl",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "vue backend library",
   "main": "lib/static/js/vue-vbl.js",
   "scripts": {
