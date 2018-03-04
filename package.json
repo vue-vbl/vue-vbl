@@ -8,7 +8,7 @@
     "build": "node build/build-vbl.js",
     "build:doc": "node build/build.js",
     "build:all": "npm run build && npm run build:doc",
-    "deploy": "npm version patch && npm publish"
+    "deploy": "sh build/deploy.sh"
   },
   "dependencies": {
     "flatpickr": "3.0.7",
