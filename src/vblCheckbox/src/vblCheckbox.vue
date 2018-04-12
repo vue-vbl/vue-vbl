@@ -6,7 +6,8 @@
             :value="nativeValue"
             :true-value="trueValue"
             :false-value="falseValue"
-            :disabled="disabled"/>
+            :disabled="disabled"
+            @change="$emit('change', $event)"/>
         <span class="check"></span>
         <span class="control-label">
             <slot></slot>
@@ -53,7 +54,6 @@
             },
             dataValue(val) {
                 this.$emit('input', val);
-                this.$emit('change', val);
             }
         }
     };

@@ -13,7 +13,8 @@ var modal = {
                 global: true,
                 alert: true,
                 hideCancel: true,
-                hideHeader: true
+                hideHeader: true,
+                width: '310'
             }, opt)
         );
     },
@@ -28,7 +29,8 @@ var modal = {
             Object.assign({
                 global: true,
                 prompt: true,
-                hideHeader: true
+                hideHeader: true,
+                width: '310'
             }, opt)
         );
     },

@@ -46,7 +46,6 @@
             },
             dataValue(val) {
                 this.$emit('input', val);
-                this.$emit('change', val);
             }
         },
         methods: {

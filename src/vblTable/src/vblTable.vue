@@ -4,12 +4,8 @@
             :style="{width: width ? `${width}px` : '100%'}">
             <thead>
                 <tr>
-                    <th v-if="hasMore">
-                        更多
-                    </th>
-                    <th v-if="hasSelect">
-                        选择
-                    </th>
+                    <th v-if="hasMore">更多</th>
+                    <th v-if="hasSelect">选择</th>
                     <th v-if="hasCheckbox">
                         <vbl-checkbox v-model="checkAll" @change="onCheckAll"></vbl-checkbox>
                     </th>
@@ -21,8 +17,8 @@
                             <span>{{column.text}}</span>
                             <div class="table-sort" 
                                 :class="getSortActiveClass(column.name)">
-                                <vbl-icon type="ion-arrow-up-b"></vbl-icon>
-                                <vbl-icon type="ion-arrow-down-b"></vbl-icon>                               
+                                <vbl-icon type="ion-android-arrow-dropup"></vbl-icon>
+                                <vbl-icon type="ion-android-arrow-dropdown"></vbl-icon>                               
                             </div>
                         </div>
                         <span v-else>{{column.text}}</span>
@@ -32,43 +28,38 @@
             
             <tbody>
                 <tr v-if="rows.length === 0">
-                    <td :colspan="colspan" style="text-align: center">
-                        没有数据!
-                    </td>
+                    <td :colspan="colspan" style="text-align: center">没有数据!</td>
                 </tr>
-                <template v-for="(row, index) in rows">
-                    <tr :class="{'row-select': dataSelect === row}" @click="onSelect(row, index)">
-                        <td v-if="hasMore" class="more-btn">
-                            <vbl-icon v-if="isMore[index]" 
-                                type="android-remove" 
-                                @click="toggleMore(row, index)"></vbl-icon>
-                            <vbl-icon v-else 
-                                type="android-add" 
-                                @click="toggleMore(row, index)"></vbl-icon>
-                        </td>
-                        <td v-if="hasSelect">
-                            <vbl-radio v-model="dataSelect" :native-value="row"></vbl-radio>
-                        </td>
-                        <td v-if="hasCheckbox">
-                            <vbl-checkbox v-model="dataCheck" :native-value="row"></vbl-checkbox>
-                        </td>
-                        <slot v-for="column in columns" 
-                            :name="column.name" 
+            </tbody>
+            <tbody v-for="(row, index) in rows">
+                <tr>
+                    <td v-if="hasMore" class="more-btn">
+                        <vbl-icon v-if="isMore[index]" 
+                            type="ion-android-remove" 
+                            @click="toggleMore(row, index)"></vbl-icon>
+                        <vbl-icon v-else 
+                            type="ion-android-add" 
+                            @click="toggleMore(row, index)"></vbl-icon>
+                    </td>
+                    <td v-if="hasSelect">
+                        <vbl-radio v-model="dataSelect" :native-value="row"></vbl-radio>
+                    </td>
+                    <td v-if="hasCheckbox">
+                        <vbl-checkbox v-model="dataCheck" :native-value="row" @change="onCheck(row, index)"></vbl-checkbox>
+                    </td>
+                    <td v-for="column in columns">
+                        <slot :name="column.name" 
                             :value="row"
                             :index="index">
-                            <td>
-                                {{row[column.name]}}
-                            </td>
+                            {{row[column.name]}}
                         </slot>
-                    </tr>
-                    <tr v-if="hasMore">
-                        <td v-show="isMore[index]" :colspan="colspan">
-                            <slot name="more" :value="row" :index="index">
-                                更多内容
-                            </slot>
-                        </td>
-                    </tr>
-                </template>
+                    </td>
+                </tr>
+                <tr v-if="hasMore">
+                    <td v-show="isMore[index]" :colspan="colspan">
+                        <slot name="more" :value="row" :index="index"></slot>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -108,12 +99,9 @@
             return {
                 dataCheck: this.check,
                 dataSelect: this.select,
-                
                 checkAll: false,
-                
                 columnSort: '',
                 toggleSort: 1,
-                
                 isMore: []
             };
         },
@@ -147,18 +135,12 @@
             },
             check(val) {
                 this.dataCheck = val;
-                if (val.length === this.rows.length) {
-                    this.checkAll = true;
-                }
-                if (val.length === 0) {
-                    this.checkAll = false;
-                }
-            },
-            select(val) {
-                this.dataSelect = val;
             },
             dataCheck(val) {
                 this.$emit('update:check', val);
+            },
+            select(val) {
+                this.dataSelect = val;
             },
             dataSelect(val) {
                 this.$emit('update:select', val);
@@ -173,6 +155,18 @@
                     });
                 }
             },
+            onCheck(row, index) {
+                var index = this.dataCheck.indexOf(row);
+                if (index < 0) {
+                    this.dataCheck.push(row);
+                    if (this.dataCheck.length === this.rows.length) {
+                        this.checkAll = true;
+                    }
+                } else {
+                    this.dataCheck.splice(index, 1);
+                    this.checkAll = false;
+                }
+            },
             orderBy(name) {
                 this.toggleSort = -this.toggleSort;
                 this.columnSort = name;
@@ -185,7 +179,7 @@
                     if (this.toggleSort === 1) {
                         return 'active-up';
                     } else {
-                        return 'active-do';
+                        return 'active-down';
                     };
                 } 
                 return '';
@@ -193,11 +187,6 @@
             toggleMore(row, index) {
                 this.$set(this.isMore, index, !this.isMore[index]);
                 this.$emit('toggle-more', this.isMore[index], row, index);
-            },
-            onSelect(row, index) {
-                if (this.hasSelect) {
-                    this.dataSelect = row;
-                }
             },
             clearSelect() {
                 this.dataSelect = null;
@@ -260,8 +249,8 @@
                             overflow: hidden;
                             cursor: pointer;
                             position: relative;
-                            &.active-up .ion-arrow-up-b,
-                            &.active-do .ion-arrow-down-b {
+                            &.active-up .ion-android-arrow-dropup,
+                            &.active-down .ion-android-arrow-dropdown {
                                 color: #1d86f4;
                             }
                             .vbl-icon {
@@ -271,7 +260,11 @@
                                 overflow: hidden;
                                 position: absolute;
                                 color: #bbbec4;
+                                font-size: 16px;
                                 transition: color .2s ease-in-out;
+                                &:before {
+                                    line-height: 6px;
+                                }
                                 &:first-child {
                                     top: 0;
                                 }
@@ -303,6 +296,7 @@
                     }
                     .more-btn .vbl-icon {
                         cursor: pointer;
+                        font-size: 16px;
                     }
                 }
                 tr.row-select,

@@ -15,7 +15,6 @@ vbl-select(vbl-multi-select)
 ### events
 |名称|参数|描述
 |----|----|----
-|change|value|选择或取消时触发
 
 ### slot
 |名称|参数|描述

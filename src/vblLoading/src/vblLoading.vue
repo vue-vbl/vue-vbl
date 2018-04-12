@@ -55,11 +55,13 @@
             top: 50%;
             left: 50%;
             z-index: 2;
-            width: 90px;
-            height: 90px;
-            margin: -45px 0 0 -45px;
+            width: 50px;
+            height: 50px;
+            margin: -25px 0 0 -25px;
+            text-align: center;
          }
         .loading-rotate {
+            display: block;
             color: #fff;
             animation: rotate 1s infinite linear;
          }

@@ -142,13 +142,7 @@
                 if (this.width) {
                     return `${this.width}px`;
                 }
-                if (this.alert || this.prompt) {
-                    return '310px';
-                } else if (this.img) {
-                    return 'auto';
-                } else {
-                    return '520px';
-                }
+                return 'auto';
             }
         },
         watch: {

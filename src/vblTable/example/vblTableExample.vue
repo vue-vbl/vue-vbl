@@ -9,9 +9,9 @@
         
         自定义单元格
         <vbl-table :columns="columns1" :rows="rows">
-            <td slot="actions" slot-scope="props">
+            <template slot="actions" slot-scope="props">
                 <a @click="deleteRow(props.value)">删除</a>
-            </td>
+            </template>
         </vbl-table>
         <br/>
         <br/>

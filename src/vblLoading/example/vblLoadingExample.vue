@@ -11,7 +11,7 @@
                 var loading = this.$loading.open();
                 setTimeout(() => {
                     loading.destroy();
-                }, 2000);
+                }, 200000);
             }
         }
     }
