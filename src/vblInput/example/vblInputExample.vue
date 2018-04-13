@@ -2,9 +2,6 @@
     <div>
         <p><vbl-input placeholder="提示" v-model="val"></vbl-input></p> 
         <br/>
-        删除前后空格
-        <p><vbl-input placeholder="提示" v-model="val1" trim></vbl-input></p> 
-        <br/>
         禁用     
         <p><vbl-input placeholder="提示" v-model="val2" disabled></vbl-input></p>
         <br/>

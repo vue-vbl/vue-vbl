@@ -11,11 +11,11 @@
                 :disabled="disabled" 
                 :readonly="readonly" 
                 :value="dataValue" 
-                @input="onInput"
-                @change="onChange"
-                @focus="onFocus"
-                @blur="onBlur"/>
-            <vbl-icon type="ion-ios-close-empty" size="30" @click="onClear"></vbl-icon>
+                @input="$emit('input', $event.target.value)"
+                @change="$emit('change', $event)"
+                @focus="$emit('focus', $event)"
+                @blur="$emit('blur', $event)"/>
+            <vbl-icon type="ion-ios-close-empty" size="30" @click="$emit('input', '')"></vbl-icon>
         </span>
         <span v-if="icon" 
             class="icon-wrap" 
@@ -42,12 +42,6 @@
             clear: {
                 type: Boolean,
                 default: false
-            }
-        },
-        methods: {
-            onClear() {
-                this.$emit('input', '');
-                this.$emit('clear');
             }
         }
     };

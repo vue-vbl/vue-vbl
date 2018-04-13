@@ -17,7 +17,7 @@ vbl-checkbox
 ### events
 |名称|参数|描述
 |----|----|----
-|change|val|选择或取消时触发
+|change|e|选择或取消时触发
 
 ### slot
 |名称|参数|描述

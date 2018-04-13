@@ -11,7 +11,6 @@
 |disabled|Boolean|false|input是否不可用
 |readonly|Boolean|false|input是否只读
 |placeholder|String||提示语
-|trim|Boolean|false|是否删除前后空格
 |icon|String||是否带icon
 
 ### events

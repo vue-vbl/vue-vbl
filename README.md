@@ -14,7 +14,6 @@
 
 ```
 npm install vue-vbl
-
 ```
 
 ### 引入
@@ -26,11 +25,6 @@ import 'vue-vbl/dist/vue-vbl.css';
 
 Vue.use(VueVbl);
 ```
-
-## 依赖
-
-- jquery
-- vue
 
 
 

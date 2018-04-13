@@ -4,11 +4,10 @@
         :disabled="disabled"
         :readonly="readonly"
         :value="dataValue"
-        @input="onInput"
-        @change="onChange"
-        @focus="onFocus"
-        @blur="onBlur">
-    </textarea>
+        @input="$emit('input', $event.target.value)"
+        @change="$emit('change', $event)"
+        @focus="$emit('focus', $event)"
+        @blur="$emit('blur', $event)"></textarea>
 </template>
 
 <script>

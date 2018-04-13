@@ -5,7 +5,7 @@
                 <router-link to="/">&lt;vbl/&gt;</router-link>
             </h1>
             
-            <h2><vbl-icon type="android-arrow-dropri"></vbl-icon>常用</h2>
+            <h2><vbl-icon type="ion-android-arrow-dropright"></vbl-icon>常用</h2>
             <ul>
                 <li v-for="(plugin, name) in common" 
                     :class="{'active': currentView === name}">
@@ -13,7 +13,7 @@
                 </li>
             </ul>
             
-            <h2><vbl-icon type="android-arrow-dropri"></vbl-icon>基本</h2>
+            <h2><vbl-icon type="ion-android-arrow-dropright"></vbl-icon>基本</h2>
             <ul>
                 <li v-for="(plugin, name) in basic" 
                     :class="{'active': currentView === name}">
@@ -21,7 +21,7 @@
                 </li>
             </ul>
             
-            <h2><vbl-icon type="android-arrow-dropri"></vbl-icon>浮层</h2>
+            <h2><vbl-icon type="ion-android-arrow-dropright"></vbl-icon>浮层</h2>
             <ul>
                 <li v-for="(plugin, name) in float" 
                     :class="{'active': currentView === name}">
@@ -29,7 +29,7 @@
                 </li>
             </ul>
             
-            <h2><vbl-icon type="android-arrow-dropri"></vbl-icon>表单</h2>
+            <h2><vbl-icon type="ion-android-arrow-dropright"></vbl-icon>表单</h2>
             <ul>
                 <li v-for="(plugin, name) in form" 
                     :class="{'active': currentView === name}">
@@ -110,6 +110,9 @@ export default {
             }
             h2 {
                 margin: 10px 0 0 20px;
+                .vbl-icon {
+                    margin-right: 5px;
+                }
             }
             ul li {
                 margin:10px 20px;
